@@ -19,9 +19,10 @@ public class BudgetService
         var budgets = _budgetRepo.GetAll();
         decimal totalAmount = 0;
 
+        var period = new Period(start, end);
         foreach (var budget in budgets)
         {
-            var effectiveDays = new Period(start, end).OverlappingDays(budget.CreatePeriod());
+            var effectiveDays = period.OverlappingDays(budget.CreatePeriod());
 
             var daysInMonth = DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
 
