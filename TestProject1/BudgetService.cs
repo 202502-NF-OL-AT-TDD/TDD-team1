@@ -34,7 +34,6 @@ public class BudgetService
 
     private static int Days(Budget budget)
     {
-        var daysInMonth = DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
-        return daysInMonth;
+        return DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
     }
 }
