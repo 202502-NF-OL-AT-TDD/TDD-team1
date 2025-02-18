@@ -21,18 +21,7 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
-            int effectiveDays;
-            if (end < budget.FirstDay() || start > budget.LastDay())
-            {
-                effectiveDays = 0;
-            }
-            else
-            {
-                var effectiveStart = start > budget.FirstDay() ? start : budget.FirstDay();
-                var effectiveEnd = end < budget.LastDay() ? end : budget.LastDay();
-
-                effectiveDays = (effectiveEnd - effectiveStart).Days + 1;
-            }
+            var effectiveDays = OverlappingDays(start, end, budget);
 
             var daysInMonth = DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
 
@@ -40,5 +29,18 @@ public class BudgetService
         }
 
         return totalAmount;
+    }
+
+    private static int OverlappingDays(DateTime start, DateTime end, Budget budget)
+    {
+        if (end < budget.FirstDay() || start > budget.LastDay())
+        {
+            return 0;
+        }
+
+        var effectiveStart = start > budget.FirstDay() ? start : budget.FirstDay();
+        var effectiveEnd = end < budget.LastDay() ? end : budget.LastDay();
+
+        return (effectiveEnd - effectiveStart).Days + 1;
     }
 }
