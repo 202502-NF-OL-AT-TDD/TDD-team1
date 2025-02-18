@@ -15,4 +15,9 @@ public class Budget
     {
         return FirstDay().AddMonths(1).AddDays(-1);
     }
+
+    public Period CreatePeriod()
+    {
+        return new Period(FirstDay(), LastDay());
+    }
 }
