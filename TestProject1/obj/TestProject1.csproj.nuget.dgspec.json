@@ -1,21 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anise.Hsieh\\RiderProjects\\ConsoleApp1\\TestProject1\\TestProject1.csproj": {}
+    "C:\\Users\\jayha\\RiderProjects\\tdd\\TDD-team1\\TestProject1\\TestProject1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anise.Hsieh\\RiderProjects\\ConsoleApp1\\TestProject1\\TestProject1.csproj": {
+    "C:\\Users\\jayha\\RiderProjects\\tdd\\TDD-team1\\TestProject1\\TestProject1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anise.Hsieh\\RiderProjects\\ConsoleApp1\\TestProject1\\TestProject1.csproj",
+        "projectUniqueName": "C:\\Users\\jayha\\RiderProjects\\tdd\\TDD-team1\\TestProject1\\TestProject1.csproj",
         "projectName": "TestProject1",
-        "projectPath": "C:\\Users\\Anise.Hsieh\\RiderProjects\\ConsoleApp1\\TestProject1\\TestProject1.csproj",
-        "packagesPath": "C:\\Users\\Anise.Hsieh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anise.Hsieh\\RiderProjects\\ConsoleApp1\\TestProject1\\obj\\",
+        "projectPath": "C:\\Users\\jayha\\RiderProjects\\tdd\\TDD-team1\\TestProject1\\TestProject1.csproj",
+        "packagesPath": "C:\\Users\\jayha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jayha\\RiderProjects\\tdd\\TDD-team1\\TestProject1\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "C:\\Users\\Anise.Hsieh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\jayha\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -70,8 +69,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -80,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Anise.Hsieh\\.dotnet\\sdk\\6.0.418\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.320\\RuntimeIdentifierGraph.json"
         }
       }
     }

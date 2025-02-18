@@ -7,20 +7,20 @@ namespace TestProject1;
 [TestFixture]
 public class BudgetServiceTests
 {
-    private IBudgetReport _budgetRepo;
+    private IBudgetRepo _budgetRepo;
     private BudgetService _budgetService;
 
     [SetUp]
     public void Setup()
     {
-        _budgetRepo = Substitute.For<IBudgetReport>();
+        _budgetRepo = Substitute.For<IBudgetRepo>();
         _budgetService = new BudgetService(_budgetRepo);
     }
 
     [Test]
     public void invalid_date_range()
     {
-        var budgetReport = Substitute.For<IBudgetReport>();
+        var budgetReport = Substitute.For<IBudgetRepo>();
 
         budgetReport.GetAll().Returns(new List<Budget>
         {
@@ -36,7 +36,7 @@ public class BudgetServiceTests
     [Test]
     public void query_one_day()
     {
-        var budgetReport = Substitute.For<IBudgetReport>();
+        var budgetReport = Substitute.For<IBudgetRepo>();
 
         budgetReport.GetAll().Returns(new List<Budget>
         {
@@ -52,7 +52,7 @@ public class BudgetServiceTests
     [Test]
     public void query_partial_months()
     {
-        var budgetReport = Substitute.For<IBudgetReport>();
+        var budgetReport = Substitute.For<IBudgetRepo>();
 
         budgetReport.GetAll().Returns(new List<Budget>
         {
@@ -68,7 +68,7 @@ public class BudgetServiceTests
     [Test]
     public void query_full_months()
     {
-        var budgetReport = Substitute.For<IBudgetReport>();
+        var budgetReport = Substitute.For<IBudgetRepo>();
 
         budgetReport.GetAll().Returns(new List<Budget>
         {
@@ -86,7 +86,7 @@ public class BudgetServiceTests
     [Test]
     public void query_cross_months()
     {
-        var budgetReport = Substitute.For<IBudgetReport>();
+        var budgetReport = Substitute.For<IBudgetRepo>();
 
         budgetReport.GetAll().Returns(new List<Budget>
         {
