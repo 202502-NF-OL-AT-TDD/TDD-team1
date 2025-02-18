@@ -20,4 +20,9 @@ public class Budget
     {
         return new Period(FirstDay(), LastDay());
     }
+
+    public int Days()
+    {
+        return DateTime.DaysInMonth(FirstDay().Year, FirstDay().Month);
+    }
 }

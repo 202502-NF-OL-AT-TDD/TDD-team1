@@ -24,16 +24,11 @@ public class BudgetService
         {
             var overlappingDays = period.OverlappingDays(budget.CreatePeriod());
 
-            var daysInMonth = Days(budget);
+            var daysInMonth = budget.Days();
 
             totalAmount += (budget.Amount / daysInMonth) * overlappingDays;
         }
 
         return totalAmount;
-    }
-
-    private static int Days(Budget budget)
-    {
-        return DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
     }
 }
