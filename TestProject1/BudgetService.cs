@@ -21,7 +21,7 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
-            var monthEnd = LastDay(budget);
+            var monthEnd = budget.LastDay();
 
             if (end < budget.FirstDay() || start > monthEnd)
             {
@@ -38,10 +38,5 @@ public class BudgetService
         }
 
         return totalAmount;
-    }
-
-    private static DateTime LastDay(Budget budget)
-    {
-        return budget.FirstDay().AddMonths(1).AddDays(-1);
     }
 }

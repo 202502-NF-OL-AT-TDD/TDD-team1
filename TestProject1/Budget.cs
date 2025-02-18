@@ -10,4 +10,9 @@ public class Budget
         return DateTime.ParseExact(YearMonth + "01", "yyyyMMdd", null,
             System.Globalization.DateTimeStyles.None);
     }
+
+    public DateTime LastDay()
+    {
+        return FirstDay().AddMonths(1).AddDays(-1);
+    }
 }
