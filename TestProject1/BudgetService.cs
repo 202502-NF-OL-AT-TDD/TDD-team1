@@ -42,7 +42,6 @@ public class BudgetService
 
     private static DateTime LastDay(Budget budget)
     {
-        var monthEnd = budget.FirstDay().AddMonths(1).AddDays(-1);
-        return monthEnd;
+        return budget.FirstDay().AddMonths(1).AddDays(-1);
     }
 }
