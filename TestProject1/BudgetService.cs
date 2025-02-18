@@ -22,9 +22,7 @@ public class BudgetService
         var period = new Period(start, end);
         foreach (var budget in budgets)
         {
-            var overlappingDays = period.OverlappingDays(budget.CreatePeriod());
-
-            totalAmount += budget.DailyAmount() * overlappingDays;
+            totalAmount += budget.DailyAmount() * period.OverlappingDays(budget.CreatePeriod());
         }
 
         return totalAmount;
