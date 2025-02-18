@@ -21,16 +21,19 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
+            int effectiveDays;
             if (end < budget.FirstDay() || start > budget.LastDay())
             {
-                continue; // 該月不在查詢範圍內
+                effectiveDays = 0;
+            }
+            else
+            {
+                var effectiveStart = start > budget.FirstDay() ? start : budget.FirstDay();
+                var effectiveEnd = end < budget.LastDay() ? end : budget.LastDay();
+
+                effectiveDays = (effectiveEnd - effectiveStart).Days + 1;
             }
 
-            var effectiveStart = start > budget.FirstDay() ? start : budget.FirstDay();
-            var effectiveEnd = end < budget.LastDay() ? end : budget.LastDay();
-
-            int effectiveDays;
-            effectiveDays = (effectiveEnd - effectiveStart).Days + 1;
             var daysInMonth = DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
 
             totalAmount += (budget.Amount / daysInMonth) * effectiveDays;
