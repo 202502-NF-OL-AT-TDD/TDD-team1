@@ -21,15 +21,13 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
-            var monthEnd = budget.LastDay();
-
-            if (end < budget.FirstDay() || start > monthEnd)
+            if (end < budget.FirstDay() || start > budget.LastDay())
             {
                 continue; // 該月不在查詢範圍內
             }
 
             var effectiveStart = start > budget.FirstDay() ? start : budget.FirstDay();
-            var effectiveEnd = end < monthEnd ? end : monthEnd;
+            var effectiveEnd = end < budget.LastDay() ? end : budget.LastDay();
 
             int daysInMonth = DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
             int effectiveDays = (effectiveEnd - effectiveStart).Days + 1;
