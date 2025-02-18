@@ -1,5 +1,18 @@
 namespace ConsoleApp1;
 
+public class Period
+{
+    public Period(DateTime start, DateTime end)
+    {
+        Start = start;
+        End = end;
+    }
+
+    public DateTime End { get; private set; }
+
+    public DateTime Start { get; private set; }
+}
+
 public class BudgetService
 {
     private readonly IBudgetRepo _budgetRepo;
@@ -21,7 +34,7 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
-            var effectiveDays = OverlappingDays(start, end, budget);
+            var effectiveDays = OverlappingDays(new Period(start, end), budget);
 
             var daysInMonth = DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
 
@@ -31,15 +44,15 @@ public class BudgetService
         return totalAmount;
     }
 
-    private static int OverlappingDays(DateTime start, DateTime end, Budget budget)
+    private static int OverlappingDays(Period period, Budget budget)
     {
-        if (end < budget.FirstDay() || start > budget.LastDay())
+        if (period.End < budget.FirstDay() || period.Start > budget.LastDay())
         {
             return 0;
         }
 
-        var effectiveStart = start > budget.FirstDay() ? start : budget.FirstDay();
-        var effectiveEnd = end < budget.LastDay() ? end : budget.LastDay();
+        var effectiveStart = period.Start > budget.FirstDay() ? period.Start : budget.FirstDay();
+        var effectiveEnd = period.End < budget.LastDay() ? period.End : budget.LastDay();
 
         return (effectiveEnd - effectiveStart).Days + 1;
     }
