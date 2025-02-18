@@ -45,8 +45,7 @@ public class BudgetService
 
     private static DateTime FirstDay(Budget budget)
     {
-        var firstDay = DateTime.ParseExact(budget.YearMonth + "01", "yyyyMMdd", null,
+        return DateTime.ParseExact(budget.YearMonth + "01", "yyyyMMdd", null,
             System.Globalization.DateTimeStyles.None);
-        return firstDay;
     }
 }
