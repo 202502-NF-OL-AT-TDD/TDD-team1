@@ -22,11 +22,11 @@ public class BudgetService
         var period = new Period(start, end);
         foreach (var budget in budgets)
         {
-            var effectiveDays = period.OverlappingDays(budget.CreatePeriod());
+            var overlappingDays = period.OverlappingDays(budget.CreatePeriod());
 
             var daysInMonth = DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
 
-            totalAmount += (budget.Amount / daysInMonth) * effectiveDays;
+            totalAmount += (budget.Amount / daysInMonth) * overlappingDays;
         }
 
         return totalAmount;
