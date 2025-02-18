@@ -21,7 +21,7 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
-            var monthStart = new DateTime(budget.FirstDay().Year, budget.FirstDay().Month, 1);
+            var monthStart = budget.FirstDay();
             var monthEnd = monthStart.AddMonths(1).AddDays(-1);
 
             if (end < monthStart || start > monthEnd)
