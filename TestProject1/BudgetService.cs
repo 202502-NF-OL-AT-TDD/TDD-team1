@@ -29,7 +29,8 @@ public class BudgetService
             var effectiveStart = start > budget.FirstDay() ? start : budget.FirstDay();
             var effectiveEnd = end < budget.LastDay() ? end : budget.LastDay();
 
-            var effectiveDays = (effectiveEnd - effectiveStart).Days + 1;
+            int effectiveDays;
+            effectiveDays = (effectiveEnd - effectiveStart).Days + 1;
             var daysInMonth = DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
 
             totalAmount += (budget.Amount / daysInMonth) * effectiveDays;
