@@ -21,14 +21,10 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
-            var budgetMonth = DateTime.ParseExact(budget.YearMonth + "01", "yyyyMMdd", null,
+            var firstDay = DateTime.ParseExact(budget.YearMonth + "01", "yyyyMMdd", null,
                 System.Globalization.DateTimeStyles.None);
-            // if (!isYearMonthValid)
-            // {
-            //     continue; // 無效的 YearMonth 格式，跳過
-            // }
 
-            var monthStart = new DateTime(budgetMonth.Year, budgetMonth.Month, 1);
+            var monthStart = new DateTime(firstDay.Year, firstDay.Month, 1);
             var monthEnd = monthStart.AddMonths(1).AddDays(-1);
 
             if (end < monthStart || start > monthEnd)
@@ -39,7 +35,7 @@ public class BudgetService
             var effectiveStart = start > monthStart ? start : monthStart;
             var effectiveEnd = end < monthEnd ? end : monthEnd;
 
-            int daysInMonth = DateTime.DaysInMonth(budgetMonth.Year, budgetMonth.Month);
+            int daysInMonth = DateTime.DaysInMonth(firstDay.Year, firstDay.Month);
             int effectiveDays = (effectiveEnd - effectiveStart).Days + 1;
 
             totalAmount += (budget.Amount / daysInMonth) * effectiveDays;
