@@ -21,12 +21,12 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
-            var isYearMonthValid = DateTime.TryParseExact(budget.YearMonth + "01", "yyyyMMdd", null,
-                System.Globalization.DateTimeStyles.None, out DateTime budgetMonth);
-            if (!isYearMonthValid)
-            {
-                continue; // 無效的 YearMonth 格式，跳過
-            }
+            var budgetMonth = DateTime.ParseExact(budget.YearMonth + "01", "yyyyMMdd", null,
+                System.Globalization.DateTimeStyles.None);
+            // if (!isYearMonthValid)
+            // {
+            //     continue; // 無效的 YearMonth 格式，跳過
+            // }
 
             var monthStart = new DateTime(budgetMonth.Year, budgetMonth.Month, 1);
             var monthEnd = monthStart.AddMonths(1).AddDays(-1);
