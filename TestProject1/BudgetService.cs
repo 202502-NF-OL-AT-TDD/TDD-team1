@@ -21,8 +21,9 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
-            if (!DateTime.TryParseExact(budget.YearMonth + "01", "yyyyMMdd", null,
-                    System.Globalization.DateTimeStyles.None, out DateTime budgetMonth))
+            var isYearMonthValid = DateTime.TryParseExact(budget.YearMonth + "01", "yyyyMMdd", null,
+                System.Globalization.DateTimeStyles.None, out DateTime budgetMonth);
+            if (!isYearMonthValid)
             {
                 continue; // 無效的 YearMonth 格式，跳過
             }
