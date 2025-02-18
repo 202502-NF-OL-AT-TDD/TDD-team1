@@ -25,4 +25,9 @@ public class Budget
     {
         return DateTime.DaysInMonth(FirstDay().Year, FirstDay().Month);
     }
+
+    public decimal DailyAmount()
+    {
+        return Amount / Days();
+    }
 }
