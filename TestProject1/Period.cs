@@ -1,4 +1,4 @@
-namespace ConsoleApp1;
+namespace TestProject1;
 
 public class Period
 {
@@ -8,9 +8,9 @@ public class Period
         End = end;
     }
 
-    public DateTime End { get; private set; }
+    private DateTime End { get; set; }
 
-    public DateTime Start { get; private set; }
+    private DateTime Start { get; set; }
 
     public int OverlappingDays(Period another)
     {

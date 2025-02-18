@@ -1,3 +1,5 @@
+using TestProject1;
+
 namespace ConsoleApp1;
 
 public class BudgetService
@@ -16,10 +18,9 @@ public class BudgetService
             return 0;
         }
 
-        var budgets = _budgetRepo.GetAll();
-
         var period = new Period(start, end);
 
-        return budgets.Sum(budget => budget.OverlappingAmount(period));
+        return _budgetRepo.GetAll()
+            .Sum(budget => budget.OverlappingAmount(period));
     }
 }

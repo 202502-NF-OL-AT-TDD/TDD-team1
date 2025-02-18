@@ -1,3 +1,5 @@
+using TestProject1;
+
 namespace ConsoleApp1;
 
 public interface IBudgetRepo
