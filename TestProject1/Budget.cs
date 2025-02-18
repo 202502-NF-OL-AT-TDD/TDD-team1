@@ -30,4 +30,9 @@ public class Budget
     {
         return Amount / Days();
     }
+
+    public decimal OverlappingAmount(Period period)
+    {
+        return DailyAmount() * period.OverlappingDays(CreatePeriod());
+    }
 }
