@@ -21,7 +21,7 @@ public class BudgetService
 
         foreach (var budget in budgets)
         {
-            var effectiveDays = new Period(start, end).OverlappingDays(budget);
+            var effectiveDays = new Period(start, end).OverlappingDays(new Period(budget.FirstDay(), budget.LastDay()));
 
             var daysInMonth = DateTime.DaysInMonth(budget.FirstDay().Year, budget.FirstDay().Month);
 
